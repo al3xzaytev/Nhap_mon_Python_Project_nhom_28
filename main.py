@@ -1,7 +1,9 @@
 # Nhập môn Python lớp thứ 6 tiết 8-11
 # Nhóm 28
 # Project 1
+print("=============================================")
 print("Chào mừng bạn đến với phần mềm quản lý danh sách học sinh hàng đầu Việt Nam.")
+print("=============================================")
 
 
 def main():
