@@ -1,13 +1,9 @@
+import file_handling
+
+
 def them_hoc_vien():
-    default_file = "hocvien.dat"
-
-    file_path = str(input("Nhập đường dẫn file:\n>: "))
-
-    if file_path == "":
-        file_path = default_file
-
-    print(file_path)
-    file = open(file_path, 'a')
+    print("[ + Thêm học viên + ]")
+    file = open(file_handling.file_path(), 'a')
 
     print("\nNhập thông tin học viên.")
 
