@@ -1,3 +1,6 @@
+# Nhập môn Python lớp thứ 6 tiết 8-11
+# Nhóm 28
+# Project 1
 print("Chào mừng bạn đến với phần mềm quản lý danh sách học sinh hàng đầu Việt Nam.")
 
 
@@ -21,7 +24,7 @@ def main():
         elif user_input == "dm2" or user_input == "5":
             import diem_so as ds
             ds.dm2()
-        elif user_input == "diem_so" or user_input == "6":
+        elif user_input == "diemso" or user_input == "6":
             import diem_so as ds
             ds.diem_so()
 
