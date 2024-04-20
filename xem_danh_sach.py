@@ -24,24 +24,39 @@ def xem_danh_sach():
     print()
     print("Danh sách", data_file, "đã mở.")
     print()
+    print("|", '{:^14}'.format("Ma so hoc vien"), "|",
+          '{:<30}'.format("Ho ten"), "|",
+          '{:^14}'.format("Ma mon hoc 1"), "|",
+          '{:^12}'.format("Diem mon 1"), "|",
+          '{:^14}'.format("Ma mon hoc 2"), "|",
+          '{:^12}'.format("Diem mon 2"), "|")
 
+    ''' Cách format cũ
     print('%-14s' % 'Ma so hoc vien', "|",
           '%-30s' % "Ho ten hoc vien", "|",
           '%-14s' % "Ma mon hoc 1", "|",
           '%-12s' % "Diem mon 1", "|",
           '%-14s' % "Ma mon hoc 2", "|",
           '%-12s' % "Diem mon 2")
-
-    for i in range(0, 113):
+    '''
+    for i in range(0, 115):
         print("-", end="")
     print()
     for num_entries in range(0, len(list_mshv)):
+        print("|", '{:^14}'.format(list_mshv[num_entries]), "|",
+              '{:<30}'.format(list_hthv[num_entries]), "|",
+              '{:^14}'.format(list_mmh1[num_entries]), "|",
+              '{:^12}'.format(list_dm1[num_entries]), "|",
+              '{:^14}'.format(list_mmh2[num_entries]), "|",
+              '{:^12}'.format(list_dm2[num_entries]), "|")
+        ''' Cách format cũ
         print('%-14s' % (list_mshv[num_entries]), "|",
               '%-30s' % list_hthv[num_entries], "|",
               '%-14s' % list_mmh1[num_entries], "|",
               '%-12s' % list_dm1[num_entries], "|",
               '%-14s' % list_mmh2[num_entries], "|",
               '%-12s' % list_dm2[num_entries], " ")
+        '''
     print()
     import main as m
     m.main()
