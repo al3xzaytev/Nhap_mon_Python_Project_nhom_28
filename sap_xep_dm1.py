@@ -1,4 +1,5 @@
 # Sắp xếp theo điểm môn 1
+# LEGACY CODE - File này không dùng nữa. Mọi tính năng đã chuyển sang diem_so.py dạng function dm1()
 
 import numpy as np
 
@@ -8,7 +9,7 @@ dong = file_hoc_vien.readlines()
 
 
 def sap_xep():
-    print("Danh sách học sinh theo thứ tự DM1 tăng dần:")
+    print("Bảng điểm học sinh theo thứ tự DM1 tăng dần:")
     list_mshv = []
     list_hthv = []
     list_dm1 = []
@@ -30,9 +31,9 @@ def sap_xep():
     np_hthv_sort = np_hthv[sort_args]
 
     print()
-    print("|", '{:^14}'.format("Ma so hoc vien"), "|",
-          '{:<30}'.format("Ho ten"), "|",
-          '{:^12}'.format("Diem mon 1"), "|",)
+    print("|", '{:^14}'.format("Mã số học viên"), "|",
+          '{:<30}'.format("Họ tên"), "|",
+          '{:^12}'.format("Điểm môn 1"), "|")
 
     for i in range(0, 66):
         print("-", end="")

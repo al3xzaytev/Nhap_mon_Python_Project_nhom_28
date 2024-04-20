@@ -2,9 +2,9 @@ print("Chào mừng bạn đến với phần mềm quản lý danh sách học 
 
 
 def main():
-    nam_dep_trai = True
+    const_nam_dep_trai = True
 
-    while nam_dep_trai is True:
+    while const_nam_dep_trai is True:
         user_input = input("Nhập yêu cầu của bạn: ")
         if user_input == "add" or user_input == "2":
             import them_hoc_vien as thv
@@ -16,11 +16,14 @@ def main():
             import xem_danh_sach as xds
             xds.xem_danh_sach()
         elif user_input == "dm1" or user_input == "4":
-            import sap_xep_dm1 as dm1
-            dm1.sap_xep()
+            import diem_so as ds
+            ds.dm1()
         elif user_input == "dm2" or user_input == "5":
-            import sap_xep_dm2 as dm2
-            dm2.sap_xep()
+            import diem_so as ds
+            ds.dm2()
+        elif user_input == "diem_so" or user_input == "6":
+            import diem_so as ds
+            ds.diem_so()
 
 
 main()

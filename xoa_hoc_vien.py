@@ -1,7 +1,14 @@
 def xoa_hoc_vien():
     print("Xoá học viên.")
-    data_file = "hocvien.dat"
-    file_hoc_vien = open(data_file, "r")
+    default_file = "hocvien.dat"
+
+    file_path = str(input("Nhập đường dẫn file:\n>: "))
+
+    if file_path == "":
+        file_path = default_file
+
+    print(file_path)
+    file_hoc_vien = open(file_path, "r")
     dong = file_hoc_vien.readlines()
 
     while True:
@@ -19,10 +26,14 @@ def xoa_hoc_vien():
                 continue
 
         if found:
-            file_hoc_vien = open(data_file, "w")
+            file_hoc_vien = open(file_path, "w")
             for entries in dong:
                 file_hoc_vien.write(entries)
             file_hoc_vien.close()
             print("Đã xoá", mshv_input, "khỏi danh sách.")
+            import main as m
+            m.main()
         elif not found:
             print("Không thể tìm thấy mã số học viên", mshv_input, "trong danh sách.")
+            import main as m
+            m.main()

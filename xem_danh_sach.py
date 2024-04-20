@@ -1,6 +1,7 @@
 def xem_danh_sach():
     # Danh sách sẽ theo form dưới đây:
     # MSHV|HTHV|MMH1|DM1|MMH2|DM2|
+
     data_file = "hocvien.dat"
     file_hoc_vien = open(data_file, "r")
     dong = file_hoc_vien.readlines()
@@ -24,12 +25,12 @@ def xem_danh_sach():
     print()
     print("Danh sách", data_file, "đã mở.")
     print()
-    print("|", '{:^14}'.format("Ma so hoc vien"), "|",
-          '{:<30}'.format("Ho ten"), "|",
-          '{:^14}'.format("Ma mon hoc 1"), "|",
-          '{:^12}'.format("Diem mon 1"), "|",
-          '{:^14}'.format("Ma mon hoc 2"), "|",
-          '{:^12}'.format("Diem mon 2"), "|")
+    print("|", '{:^14}'.format("Mã số học viên"), "|",
+          '{:<30}'.format("Họ tên"), "|",
+          '{:^14}'.format("Mã môn học 1"), "|",
+          '{:^12}'.format("Điểm môn 1"), "|",
+          '{:^14}'.format("Mã môn học 2"), "|",
+          '{:^12}'.format("Điểm môn 2"), "|")
 
     ''' Cách format cũ
     print('%-14s' % 'Ma so hoc vien', "|",
