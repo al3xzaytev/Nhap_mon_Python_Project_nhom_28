@@ -51,9 +51,13 @@ NumPy - có trong 'diem_so.py', 'sap_xep_dm1', 'sap_xep_dm2'
 ------------------------------
 3.1. DANH SÁCH
 ------------------------------
-Danh sách sẽ được xếp theo thứ tự:
+Danh sách được xếp theo thứ tự:
 MSHV|HTHV|MMH1|DM1|MMH2|DM2|
+
 Tương ứng với:
 Mã số học viên|Họ tên học viên|Mã môn học 1|Điểm môn học 1|Mã môn học 2|Điểm môn học 2
+
 Các giá trị được xếp theo thứ tự này và cách nhau bằng ký tự '|'.
-Một ví dụ về danh sách đúng chính là file 'hocvien.dat' có trong phần mềm.
+
+Phần mềm chỉ chấp nhận danh sách theo format này. Bất cứ danh sách theo format khác sẽ báo lỗi.
+Một ví dụ về danh sách hợp lệ là file 'hocvien.dat' có trong phần mềm.
