@@ -29,21 +29,22 @@ Cách sử dụng như sau:
 
 Danh sách lệnh như sau:
 
-add - Thêm học viên
-delete - Xóa học viên bằng MSHV
-view - Xem danh sách
-dm1 - Xem bảng điểm mã môn học 1.
-dm2 - Xem bảng điểm mã môn học 2.
-diemso - Xem bảng điểm môn học 1 và 2.
+help: Hiển thị danh sách lệnh
+add: Thêm học viên
+delete: Xoá học viên theo mã số học viên
+view: Xem danh sách
+dm1: Xem bảng điểm DM1 của học viên theo thứ tự tăng dần của DM1
+dm2: Xem bảng điểm DM2 của học viên theo thứ tự tăng dần của DM2
+diemso: Xem bảng điểm DM1 và DM2 của học viên theo thứ tự tăng dần của DM1-DM2
 
 Thứ tự các bảng điểm được xếp theo từ nhỏ đến lớn.
 Đối với bảng điểm hai môn học, môn học 1 sẽ ưu tiên được sắp xếp trước.
 
 Sau khi nhập lệnh, chương trình sẽ yêu cầu nhập đường dẫn vào file text.
 Nếu không nhập bất cứ đường dẫn gì, chương trình sẽ mặc định sử dụng
-file 'hocvien.dat'.
+file 'hocvien.dat' chung thư mục vói chương trình.
 
-Sau đó, người dùng nhập theo chỉ dẫn của chương trình.
+Sau đó, người dùng nhập các tham số theo chỉ dẫn của chương trình.
 
 ============================================================
 3. CÁCH THỨC HOẠT ĐỘNG
@@ -170,9 +171,13 @@ Cách thức hoạt động của tính năng sắp xếp theo điểm một mô
   cùng một cách sắp xếp sẽ không bị loạn thứ tự.
 - Vẽ bảng.
 ------------------------------
-3.4.1.1. CƠ CHẾ VẼ BẢNG
+3.4.2. SẮP XẾP DANH SÁCH THEO ĐIỂM HAI MÔN DM1 VÀ DM2
 ------------------------------
 
 ------------------------------
-3.4.2. SẮP XẾP DANH SÁCH THEO ĐIỂM HAI MÔN DM1 VÀ DM2
+3.4.3. CƠ CHẾ VẼ BẢNG
 ------------------------------
+Cơ chế vẽ bảng sử dụng các toán tử string formatting của Python.
+Chi tiết về các toán tử này xin tham khảo tài liệu của Python:
+https://docs.python.org/2/library/stdtypes.html#string-formatting
+
