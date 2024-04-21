@@ -5,3 +5,6 @@ view: Xem danh sách
 dm1: Xem bảng điểm DM1 của học viên theo thứ tự tăng dần của DM1
 dm2: Xem bảng điểm DM2 của học viên theo thứ tự tăng dần của DM2
 diemso: Xem bảng điểm DM1 và DM2 của học viên theo thứ tự tăng dần của DM1-DM2
+mmh1: Chọn môn học 1 bằng mã môn học để xem bảng điểm
+mmh2: Chọn môn học 2 bằng mã môn học để xem bảng điểm
+quit: Thoát chương trình
