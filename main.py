@@ -9,6 +9,7 @@ def intro():
     print("=============================================")
     print("Phần mềm quản lý danh sách học viên")
     print("=============================================")
+    print("Để hiển thị danh sách các lệnh, gõ 'help'.")
     main()
 
 
@@ -16,7 +17,7 @@ def main():
     const_nam_dep_trai = True
 
     while const_nam_dep_trai is True:
-        user_input = input("\nNhập lệnh: ")
+        user_input = input("\n>: ")
         if user_input == "help":
             help_file = open('help.txt', 'r', encoding='utf-8')
             print()
@@ -39,6 +40,16 @@ def main():
         elif user_input == "diemso" or user_input == "6":
             import diem_so as ds
             ds.diem_so()
+        elif user_input == "mmh1":
+            import diem_so as ds
+            ds.mmh1()
+        elif user_input == "mmh2":
+            import diem_so as ds
+            ds.mmh2()
+        elif user_input == "quit":
+            break
+        else:
+            print(f"Lỗi: Lệnh '{user_input}' không hợp lệ.")
 
 
 intro()
