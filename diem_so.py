@@ -132,7 +132,6 @@ def mmh1():
     dong = file_hoc_vien.readlines()
 
     mmh1_input = input("Nhập mã môn học 1 cần xem điểm: ")
-    print(f"Bảng điểm cho mã môn học '{mmh1_input}':")
 
     global list_mshv, list_hthv, list_mmh1, list_dm1
     list_mshv = []
@@ -157,10 +156,13 @@ def mmh1():
             entry = 0
         else:
             entry += 1
-
-    import table_draw as td
-    td.table_draw()
-    flag_mmh1 = False
+    if not list_mmh1:
+        print("Không tìm thấy môn học!")
+    else:
+        print(f"Bảng điểm cho mã môn học '{mmh1_input}':")
+        import table_draw as td
+        td.table_draw()
+        flag_mmh1 = False
 
 
 def mmh2():
@@ -170,7 +172,6 @@ def mmh2():
     dong = file_hoc_vien.readlines()
 
     mmh2_input = input("Nhập mã môn học 2 cần xem điểm: ")
-    print(f"Bảng điểm cho mã môn học '{mmh2_input}':")
 
     global list_mshv, list_hthv, list_mmh2, list_dm2
     list_mshv = []
@@ -195,7 +196,10 @@ def mmh2():
             entry = 0
         else:
             entry += 1
-
-    import table_draw as td
-    td.table_draw()
-    flag_mmh2 = False
+    if not list_mmh2:
+        print("Không tìm thấy môn học!")
+    else:
+        print(f"Bảng điểm cho mã môn học '{mmh2_input}':")
+        import table_draw as td
+        td.table_draw()
+        flag_mmh2 = False
