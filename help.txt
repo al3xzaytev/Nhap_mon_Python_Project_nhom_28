@@ -1,0 +1,7 @@
+help: Hiển thị danh sách lệnh
+add: Thêm học viên
+delete: Xoá học viên theo mã số học viên
+view: Xem danh sách
+dm1: Xem bảng điểm DM1 của học viên theo thứ tự tăng dần của DM1
+dm2: Xem bảng điểm DM2 của học viên theo thứ tự tăng dần của DM2
+diemso: Xem bảng điểm DM1 và DM2 của học viên theo thứ tự tăng dần của DM1-DM2
