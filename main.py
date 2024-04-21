@@ -1,17 +1,27 @@
 # Nhập môn Python lớp thứ 6 tiết 8-11
 # Nhóm 28
 # Project 1
-print("=============================================")
-print("Chào mừng bạn đến với phần mềm quản lý danh sách học sinh hàng đầu Việt Nam.")
-print("=============================================")
+import os
+
+
+def intro():
+    os.system('cls')
+    print("=============================================")
+    print("Phần mềm quản lý danh sách học viên")
+    print("=============================================")
+    main()
 
 
 def main():
     const_nam_dep_trai = True
 
     while const_nam_dep_trai is True:
-        user_input = input("Nhập yêu cầu của bạn: ")
-        if user_input == "add" or user_input == "2":
+        user_input = input("\nNhập lệnh: ")
+        if user_input == "help":
+            help_file = open('help.txt', 'r', encoding='utf-8')
+            print()
+            print(help_file.read())
+        elif user_input == "add" or user_input == "2":
             import them_hoc_vien as thv
             thv.them_hoc_vien()
         elif user_input == "delete" or user_input == "3":
@@ -31,4 +41,4 @@ def main():
             ds.diem_so()
 
 
-main()
+intro()
