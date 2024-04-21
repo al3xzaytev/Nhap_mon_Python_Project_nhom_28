@@ -1,19 +1,11 @@
-# Sắp xếp theo điểm môn 2
+# Phụ trách việc xử lý dữ liệu để sắp xếp
 
 import numpy as np
 import file_handling
-"""Global values below are placed so PyCharm does not go apeshit"""
-global np_dm1
-global np_mshv
-global np_mshv_sort
-global np_hthv_sort
 
-global np_dm2
-global dm2_np_mshv
-global dm2_np_mshv_sort
-global dm2_np_hthv_sort
-global np_dm1_sort
-global np_dm2_after_dm1_sort
+"""Global values below are placed so PyCharm does not go apeshit"""
+global np_dm1, np_dm2, np_mshv, np_mshv_sort, np_hthv_sort
+global np_dm1_sort, np_dm2_after_dm1_sort
 
 flag_dm1 = False
 flag_dm2 = False
@@ -25,14 +17,12 @@ def initialization():
     flag_dm1 = False
     flag_dm2 = False
     flag_diem_so = False
-    import main as m
-    m.main()
 
 
 def dm1():
     global flag_dm1
     flag_dm1 = True
-    file_hoc_vien = open(file_handling.file_path(), "r")
+    file_hoc_vien = open(file_handling.get_file_path(), "r")
     dong = file_hoc_vien.readlines()
 
     list_mshv = []
@@ -60,15 +50,15 @@ def dm1():
     np_mshv_sort = np_mshv[sort_args]
     np_hthv_sort = np_hthv[sort_args]
 
-    import table_render as tr
-    tr.table_render()
+    import table_draw as tr
+    tr.table_draw()
 
 
 def dm2():
     global flag_dm2
     flag_dm2 = True
 
-    file_hoc_vien = open(file_handling.file_path(), "r")
+    file_hoc_vien = open(file_handling.get_file_path(), "r")
     dong = file_hoc_vien.readlines()
 
     list_mshv = []
@@ -96,14 +86,14 @@ def dm2():
     np_mshv_sort = np_mshv[sort_args]
     np_hthv_sort = np_hthv[sort_args]
 
-    import table_render as tr
-    tr.table_render()
+    import table_draw as tr
+    tr.table_draw()
 
 
 def diem_so():
     global flag_diem_so
     flag_diem_so = True
-    file_hoc_vien = open(file_handling.file_path(), "r")
+    file_hoc_vien = open(file_handling.get_file_path(), "r")
     dong = file_hoc_vien.readlines()
 
     list_mshv = []
@@ -138,26 +128,5 @@ def diem_so():
     np_hthv_sort = np_hthv[sort_args_dm1]
     np_dm2_after_dm1_sort = np_dm2[sort_args_dm1]
 
-    import table_render as tr
-    tr.table_render()
-
-
-"""
-    print()
-    print("Bảng điểm học sinh theo thứ tự DM1-DM2 tăng dần:\n")
-    print("|", '{:^14}'.format("Mã số học viên"), "|",
-          '{:<30}'.format("Họ tên"), "|",
-          '{:^12}'.format("Điểm môn 1"), "|",
-          '{:^12}'.format("Điểm môn 2"), "|")
-    for i in range(0, 81):
-        print("-", end="")
-
-    print()
-
-    for num_entries in range(0, len(ds_np_mshv)):
-        print("|", '{:^14}'.format(ds_np_mshv_sort[num_entries]), "|",
-              '{:<30}'.format(ds_np_hthv_sort[num_entries]), "|",
-              '{:^12}'.format(ds_np_dm1_sort[num_entries]), "|",
-              '{:^12}'.format(np_dm2_after_dm1_sort[num_entries]), "|",)
-    print()
-"""
+    import table_draw as tr
+    tr.table_draw()
