@@ -1,9 +1,11 @@
+# Phụ trách việc thêm học viên
+
 import file_handling
 
 
 def them_hoc_vien():
     print("[ + Thêm học viên + ]")
-    file = open(file_handling.file_path(), 'a')
+    file = open(file_handling.get_file_path(), 'a')
 
     print("\nNhập thông tin học viên.")
 

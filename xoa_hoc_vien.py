@@ -1,9 +1,11 @@
+# Phụ trách việc xoá học viên
+
 import file_handling
 
 
 def xoa_hoc_vien():
     print("[ - Xoá học viên. - ]")
-    file_hoc_vien = open(file_handling.file_path(), "r")
+    file_hoc_vien = open(file_handling.get_file_path(), "r")
     danh_sach = file_hoc_vien.readlines()
     print(danh_sach)
     while True:
@@ -21,7 +23,7 @@ def xoa_hoc_vien():
                 continue
 
         if found:
-            file_hoc_vien = open(file_handling.file_path(), "w")
+            file_hoc_vien = open(file_handling.get_file_path(), "w")
             for entries in danh_sach:
                 file_hoc_vien.write(entries)
             file_hoc_vien.close()
