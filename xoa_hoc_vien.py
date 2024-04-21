@@ -7,7 +7,7 @@ def xoa_hoc_vien():
     print("[ - Xoá học viên. - ]")
     file_hoc_vien = open(file_handling.get_file_path(), "r")
     danh_sach = file_hoc_vien.readlines()
-    print(danh_sach)
+
     while True:
         found = False
         mshv_input = input("Nhập mã số học viên để xoá: ")
