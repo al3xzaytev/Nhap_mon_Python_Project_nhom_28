@@ -7,11 +7,6 @@ global list_mshv, list_hthv, list_mmh1, list_dm1, list_mmh2, list_dm2
 flag_danh_sach = False
 
 
-def initialize():
-    global flag_danh_sach
-    flag_danh_sach = False
-
-
 def xem_danh_sach():
     global flag_danh_sach
     flag_danh_sach = True
@@ -41,3 +36,4 @@ def xem_danh_sach():
 
     import table_draw as tr
     tr.table_draw()
+    flag_danh_sach = False
