@@ -1,14 +1,24 @@
-flag_ds = True
+# Phụ trách việc nhập và xử lý đường dẫn
+
+import file_handling
 
 global list_mshv, list_hthv, list_mmh1, list_dm1, list_mmh2, list_dm2
 
+flag_danh_sach = False
+
+
+def initialize():
+    global flag_danh_sach
+    flag_danh_sach = False
+
 
 def xem_danh_sach():
+    global flag_danh_sach
+    flag_danh_sach = True
+
     # Danh sách sẽ theo form dưới đây:
     # MSHV|HTHV|MMH1|DM1|MMH2|DM2|
-
-    data_file = "hocvien.dat"
-    file_hoc_vien = open(data_file, "r")
+    file_hoc_vien = open(file_handling.get_file_path(), "r")
     dong = file_hoc_vien.readlines()
 
     global list_mshv, list_hthv, list_mmh1, list_dm1, list_mmh2, list_dm2
@@ -29,11 +39,5 @@ def xem_danh_sach():
         list_mmh2.append(danh_sach[4])
         list_dm2.append(danh_sach[5])
 
-    print()
-    print("Danh sách", data_file, "đã mở.")
-    print()
-    import table_render as tr
-    tr.table_render()
-
-    import main as m
-    m.main()
+    import table_draw as tr
+    tr.table_draw()
