@@ -19,7 +19,8 @@ def main():
     while const_nam_dep_trai is True:
         user_input = input("\n>: ")
         if user_input == "help":
-            help_file = open('help.txt', 'r', encoding='utf-8')
+            abs_path = os.path.abspath("help.txt")
+            help_file = open(abs_path, 'r', encoding='utf-8')
             print()
             print(help_file.read())
         elif user_input == "add" or user_input == "2":
