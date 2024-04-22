@@ -7,6 +7,7 @@ def xoa_hoc_vien():
     print("[ - Xoá học viên. - ]")
     file_hoc_vien = open(file_handling.get_file_path(), "r")
     danh_sach = file_hoc_vien.readlines()
+    file_path = file_hoc_vien.name
 
     while True:
         found = False
@@ -19,18 +20,15 @@ def xoa_hoc_vien():
                 print(f"Đã tìm thấy {mshv_input}.")
                 danh_sach.remove(entry)
                 found = True
+                file_hoc_vien.close()
             else:
                 continue
 
         if found:
-            file_hoc_vien = open(file_handling.get_file_path(), "w")
+            file_modded = open(file_path, "w")
             for entries in danh_sach:
-                file_hoc_vien.write(entries)
-            file_hoc_vien.close()
+                file_modded.write(entries)
+            file_modded.close()
             print("Đã xoá", mshv_input, "khỏi danh sách.")
-            import main as m
-            m.main()
         elif not found:
             print("Không thể tìm thấy mã số học viên", mshv_input, "trong danh sách.")
-            import main as m
-            m.main()

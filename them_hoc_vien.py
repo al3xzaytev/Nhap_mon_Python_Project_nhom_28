@@ -28,5 +28,4 @@ def them_hoc_vien():
     file.write(f"{dm2}|\n")
     file.close()
 
-    import main as m
-    m.main()
+    print("Thêm học viên thành công.")

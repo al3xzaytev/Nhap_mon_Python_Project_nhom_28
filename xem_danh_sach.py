@@ -13,6 +13,7 @@ def xem_danh_sach():
 
     # Danh sách sẽ theo form dưới đây:
     # MSHV|HTHV|MMH1|DM1|MMH2|DM2|
+
     file_hoc_vien = open(file_handling.get_file_path(), "r")
     dong = file_hoc_vien.readlines()
 
