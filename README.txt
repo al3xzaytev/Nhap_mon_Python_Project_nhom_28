@@ -99,7 +99,7 @@ Tính năng thêm học viên hoạt động như sau:
 3.3. XOÁ HỌC VIÊN
 ------------------------------
 Tệp tin 'xoa_hoc_vien.py' phụ trách tính năng thêm học viên.
-Tính năng thêm học viên hoạt động như sau:
+Tính năng xóa học viên hoạt động như sau:
 - Import file_handling
 - Mở file ra dùng open(file_handling.file_path(), "r"). Function file.path() trả về đường dẫn file.
 - Dùng readlines() rồi lưu trữ nội dung file vào một list có tên 'danh_sach'.
