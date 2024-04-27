@@ -9,6 +9,7 @@ def table_draw():
 
     from diem_so import flag_dm1, flag_dm2, flag_diem_so, flag_mmh1, flag_mmh2
     from xem_danh_sach import flag_danh_sach
+    from hoc_vien_info import flag_info
     if flag_dm1 is True:
         print('{:^11}'.format("Điểm môn 1"), "|")  # These must be 11 to be aligned for some reason????
     elif flag_dm2 is True:
@@ -24,7 +25,7 @@ def table_draw():
     elif flag_diem_so is True:
         print('{:^11}'.format("Điểm môn 1"), "|",
               '{:^12}'.format("Điểm môn 2"), "|")  # This one is 12 ????
-    elif flag_danh_sach is True:
+    elif flag_danh_sach is True or flag_info is True:
         print('{:^14}'.format("Mã môn học 1"), "|",
               '{:^12}'.format("Điểm môn 1"), "|",
               '{:^14}'.format("Mã môn học 2"), "|",
@@ -59,7 +60,7 @@ def table_draw():
             print("-", end="")
         print("|")
 
-    elif flag_danh_sach is True:
+    elif flag_danh_sach or flag_info:
         for i in range(0, 16):  # Mã môn 1
             print("-", end="")
         print("|", end="")
@@ -73,15 +74,24 @@ def table_draw():
             print("-", end="")
         print("|")
 
-    if flag_danh_sach is True:
-        from xem_danh_sach import list_mshv, list_hthv, list_mmh1, list_dm1, list_mmh2, list_dm2
-        for entries in range(0, len(list_mshv)):
-            print("|", '{:^14}'.format(list_mshv[entries]), "|",
-                  '{:<30}'.format(list_hthv[entries]), "|",
-                  '{:^14}'.format(list_mmh1[entries]), "|",
-                  '{:^12}'.format(list_dm1[entries]), "|",
-                  '{:^14}'.format(list_mmh2[entries]), "|",
-                  '{:^12}'.format(list_dm2[entries]), "|")
+    if flag_danh_sach or flag_info:
+        if flag_danh_sach:
+            from xem_danh_sach import list_mshv, list_hthv, list_mmh1, list_dm1, list_mmh2, list_dm2
+            for entries in range(0, len(list_mshv)):
+                print("|", '{:^14}'.format(list_mshv[entries]), "|",
+                      '{:<30}'.format(list_hthv[entries]), "|",
+                      '{:^14}'.format(list_mmh1[entries]), "|",
+                      '{:^12}'.format(list_dm1[entries]), "|",
+                      '{:^14}'.format(list_mmh2[entries]), "|",
+                      '{:^12}'.format(list_dm2[entries]), "|")
+        elif flag_info:
+            from hoc_vien_info import mshv, hthv, mmh1, dm1, mmh2, dm2
+            print("|", '{:^14}'.format(mshv), "|",
+                  '{:<30}'.format(hthv), "|",
+                  '{:^14}'.format(mmh1), "|",
+                  '{:^12}'.format(dm1), "|",
+                  '{:^14}'.format(mmh2), "|",
+                  '{:^12}'.format(dm2), "|")
 
     else:
         if flag_mmh1 is True or flag_mmh2 is True:

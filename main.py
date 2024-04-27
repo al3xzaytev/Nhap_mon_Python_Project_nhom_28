@@ -47,6 +47,9 @@ def main():
         elif user_input == "mmh2":
             import diem_so as ds
             ds.mmh2()
+        elif user_input == "hvinfo":
+            import hoc_vien_info as hvinfo
+            hvinfo.hoc_vien_info()
         elif user_input == "quit":
             break
         else:
