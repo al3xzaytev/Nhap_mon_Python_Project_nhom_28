@@ -157,7 +157,7 @@ def mmh1():
         else:
             entry += 1
     if not list_mmh1:
-        print("Không tìm thấy môn học!")
+        print("Lỗi: Không tìm thấy môn học!")
     else:
         print(f"Bảng điểm cho mã môn học '{mmh1_input}':")
         import table_draw as td
@@ -197,7 +197,7 @@ def mmh2():
         else:
             entry += 1
     if not list_mmh2:
-        print("Không tìm thấy môn học!")
+        print("Lỗi: Không tìm thấy môn học!")
     else:
         print(f"Bảng điểm cho mã môn học '{mmh2_input}':")
         import table_draw as td
