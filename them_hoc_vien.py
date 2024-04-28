@@ -18,14 +18,14 @@ def them_hoc_vien():
     mmh1 = str(input("Nhập mã môn học 1 (4 chữ cái): "))
     file.write(f"{mmh1}|")
 
-    dm1 = int(input("Nhập điểm môn học 1 (số nguyên từ 0-10):"))
+    dm1 = int(input("Nhập điểm môn học 1 (số nguyên từ 0-10): "))
     file.write(f"{dm1}|")
 
     mmh2 = str(input("Nhập mã môn học 2 (4 chữ cái): "))
     file.write(f"{mmh2}|")
 
-    dm2 = int(input("Nhập điểm môn học 2 (số nguyên từ 0-10):"))
-    file.write(f"{dm2}|\n")
+    dm2 = int(input("Nhập điểm môn học 2 (số nguyên từ 0-10): "))
+    file.write(f"{dm2}\n")
     file.close()
 
     print("Thêm học viên thành công.")
