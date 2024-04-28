@@ -34,24 +34,27 @@ def main():
             xds.xem_danh_sach()
         elif user_input == "dm1" or user_input == "4":
             import diem_so as ds
-            ds.dm1()
+            ds.diem_mon("dm1")
         elif user_input == "dm2" or user_input == "5":
             import diem_so as ds
-            ds.dm2()
+            ds.diem_mon("dm2")
         elif user_input == "diemso" or user_input == "6":
             import diem_so as ds
             ds.diem_so()
         elif user_input == "mmh1":
             import diem_so as ds
-            ds.mmh1()
+            ds.ma_mon_hoc("mmh1")
         elif user_input == "mmh2":
             import diem_so as ds
-            ds.mmh2()
-        elif user_input == "hvinfo":
+            ds.ma_mon_hoc("mmh2")
+        elif user_input == "mshv":
             import hoc_vien_info as hvinfo
             hvinfo.hoc_vien_info()
         elif user_input == "quit":
             break
+        # elif user_input == "protovision":
+        #     import protovision
+        #     protovision.play()
         else:
             print(f"Lỗi: Lệnh '{user_input}' không hợp lệ.")
 

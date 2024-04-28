@@ -1,0 +1,17 @@
+Cập nhật ngày 28-04-2024:
+
+- Định dạng tập tin dữ liệu đã thay đổi: Không có dấu | khi kết thúc dòng nữa.
+
+- Hệ thống điểm số đã được làm lại hoàn toàn, không dùng NumPy lẫn các giá trị global,
+cũng như tinh giản lại các hàm có nhiệm vụ giống nhau.
+
+Các tính năng yêu cầu sắp xếp điểm số (dm1/2, diemso) đã được viết lại để dùng hàm sort() cơ bản của Python.
+
+Hệ thống cắm cờ và các giá trị global, trước đây được dùng để đưa dữ liệu sang table_draw() đã được thay thế hoàn toàn
+bằng hai tham số command và data.
+command chuyển loại bảng cần vẽ sang cho table_draw
+data chuyển dữ liệu bảng cần vẽ
+
+Các hàm có nhiệm vụ gần giống nhau (xem điểm môn 1/2, xem mã môn học 1/2) được gộp vào một hàm.
+
+- Lệnh tra thông tin học viên theo mã số học viên được chỉnh lại thành 'mshv'.

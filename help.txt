@@ -7,4 +7,5 @@ dm2: Xem bảng điểm DM2 của học viên theo thứ tự tăng dần của 
 diemso: Xem bảng điểm DM1 và DM2 của học viên theo thứ tự tăng dần của DM1-DM2
 mmh1: Chọn môn học 1 bằng mã môn học để xem bảng điểm
 mmh2: Chọn môn học 2 bằng mã môn học để xem bảng điểm
+mshv: Xem thông tin học viên theo mã số học viên
 quit: Thoát chương trình
