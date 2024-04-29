@@ -4,15 +4,6 @@
 import os
 
 
-def intro():
-    os.system('cls')
-    print("=============================================")
-    print("Phần mềm quản lý danh sách học viên")
-    print("=============================================")
-    print("Để hiển thị danh sách các lệnh, gõ 'help'.")
-    main()
-
-
 def main():
     const_nam_dep_trai = True
 
@@ -59,4 +50,14 @@ def main():
             print(f"Lỗi: Lệnh '{user_input}' không hợp lệ.")
 
 
-intro()
+def intro():
+    os.system('cls')
+    print("=============================================")
+    print("Phần mềm quản lý danh sách học viên")
+    print("=============================================")
+    print("Để hiển thị danh sách các lệnh, gõ 'help'.")
+    main()
+
+
+if __name__ == "__main__":
+    intro()
