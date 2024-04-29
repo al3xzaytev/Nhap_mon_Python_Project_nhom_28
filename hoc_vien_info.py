@@ -12,7 +12,6 @@ def truy_xuat_data_hoc_vien(ma_so_hoc_vien):
         if dong[0] == ma_so_hoc_vien:
             line = entry.split(sep="\n")
             info_hoc_vien = line[0].split(sep="|")
-            print(info_hoc_vien)
             found = True
 
             import table_draw as td

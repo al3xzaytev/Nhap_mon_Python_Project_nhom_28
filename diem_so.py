@@ -78,7 +78,6 @@ def diem_so():
         danh_sach.append(newline)
 
     danh_sach.sort(key=lambda x: (int(x[3]), int(x[5])))
-    print(danh_sach)
 
     import table_draw as td
     td.table_draw("diemso", danh_sach)
