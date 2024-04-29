@@ -13,7 +13,7 @@ def truy_xuat_data_hoc_vien(ma_so_hoc_vien):
             line = entry.split(sep="\n")
             info_hoc_vien = line[0].split(sep="|")
             found = True
-
+            print(type())
             import table_draw as td
             td.table_draw("hvinfo", info_hoc_vien)
         else:
