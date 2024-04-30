@@ -2,6 +2,7 @@
 # Nhóm 28
 # Project 1
 import os
+import file_handling
 
 
 def main():
@@ -41,6 +42,9 @@ def main():
         elif user_input == "mshv":
             import hoc_vien_info as hvinfo
             hvinfo.hoc_vien_info()
+        elif user_input == "dir":
+            import file_handling
+            file_handling.set_file_path()
         elif user_input == "quit":
             break
         # elif user_input == "protovision":
@@ -55,6 +59,8 @@ def intro():
     print("=============================================")
     print("Phần mềm quản lý danh sách học viên")
     print("=============================================")
+    print("Đường dẫn tập tin dữ liệu hiện tại:")
+    print(file_handling.file_path)
     print("Để hiển thị danh sách các lệnh, gõ 'help'.")
     main()
 

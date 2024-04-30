@@ -1,23 +1,29 @@
-import os.path
+import os.path as op
+
+default_file = "hocvien.dat"
+file_path = op.abspath(default_file)
 
 
-def get_file_path():
-    default_file = "hocvien.dat"
+def set_file_path():
+    global file_path
     while True:
-        file_path = str(input("\nNhập đường dẫn tập tin dữ liệu: "))
-        if file_path == "quit":
+        print(f"Đường dẫn hiện tại: {file_path}")
+        input_path = str(input("\nNhập đường dẫn tập tin dữ liệu mới: "))
+        if input_path == "quit":
             import main as m
             m.main()
         else:
-            if file_path == "":
-                abs_path = os.path.abspath(default_file)
-                print("Đường dẫn đã chọn:", abs_path)
-                return abs_path
+            if input_path == "":
+                file_path = op.abspath(default_file)
             else:
-                abs_path = os.path.abspath(file_path)
-                print("Đường dẫn đã chọn:", abs_path)
-                if os.path.exists(abs_path):
-                    print("Danh sách", abs_path, "đã mở.")
-                    return abs_path
+                print("Đường dẫn đã chọn:", input_path)
+                if op.exists(op.abspath(input_path)):
+                    file_path = op.abspath(input_path)
+                    print("\nDanh sách", file_path, "đã mở.")
+                    break
                 else:
                     print("Lỗi: Tập tin không tồn tại!\n")
+
+
+def get_file_path():
+    return file_path
