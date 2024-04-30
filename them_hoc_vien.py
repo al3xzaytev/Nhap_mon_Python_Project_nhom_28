@@ -54,7 +54,6 @@ def them_hoc_vien():
         if dm2 == "quit":
             return None
         elif dm2.isdigit() and 0 <= int(dm2) <= 10:
-            file.close()
             break
         else:
             print("Lỗi: Điểm không hợp lệ!\n")
@@ -65,5 +64,6 @@ def them_hoc_vien():
     file.write(f"{dm1}|")
     file.write(f"{mmh2}|")
     file.write(f"{dm2}\n")
+    file.close()
 
     print("Thêm học viên thành công.")
