@@ -5,15 +5,24 @@ import file_handling
 
 def them_hoc_vien():
     print("[ + Thêm học viên + ]")
-    file = open(file_handling.get_file_path(), 'a')
+    file = file_handling.process_file("read")
+    danh_sach = []
+    for entry in file:
+        line = entry.split(sep="\n")
+        info_hoc_vien = line[0].split(sep="|")
+        danh_sach.append(info_hoc_vien)
 
     print("\nNhập thông tin học viên.")
 
     while True:
         mshv = input("Nhập mã số học viên: ")
+        flag_trung_lap = False  # Kiểm tra xem mã số học viên có bị trùng không
+        for entry in danh_sach:
+            if mshv == entry[0]:
+                flag_trung_lap = True
         if mshv == "quit":
             return None
-        elif len(mshv) == 8:
+        elif len(mshv) == 8 and not flag_trung_lap:
             break
         else:
             print("Lỗi: Mã số học viên không hợp lệ!\n")
@@ -58,6 +67,7 @@ def them_hoc_vien():
         else:
             print("Lỗi: Điểm không hợp lệ!\n")
 
+    file = file_handling.process_file("append")
     file.write(f"{mshv}|")
     file.write(f"{hthv}|")
     file.write(f"{mmh1}|")

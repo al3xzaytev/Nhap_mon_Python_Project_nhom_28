@@ -61,7 +61,7 @@ def intro():
     print("=============================================")
     print("Đường dẫn tập tin dữ liệu hiện tại:")
     print(file_handling.file_path)
-    print("Để hiển thị danh sách các lệnh, gõ 'help'.")
+    print("\nĐể hiển thị danh sách các lệnh, gõ 'help'.")
     main()
 
 

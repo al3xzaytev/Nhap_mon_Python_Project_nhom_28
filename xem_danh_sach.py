@@ -4,11 +4,10 @@ import file_handling
 
 
 def xem_danh_sach():
-    file_hoc_vien = open(file_handling.get_file_path(), "r")
-    dong = file_hoc_vien.readlines()
+    file_content = file_handling.process_file("read")
 
     danh_sach = []
-    for number_of_lines in dong:
+    for number_of_lines in file_content:
         line = number_of_lines.split(sep="\n")
         newline = line[0].split(sep="|")
         danh_sach.append(newline)
