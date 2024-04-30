@@ -51,7 +51,7 @@ def ma_mon_hoc(command):
             td.table_draw("mmh1", danh_sach)
 
     elif command == "mmh2":
-        mmh2_input = input("Nhập mã môn học 1 cần xem điểm: ")
+        mmh2_input = input("Nhập mã môn học 2 cần xem điểm: ")
         while entry < len(danh_sach):
             if danh_sach[entry][4] != mmh2_input:
                 danh_sach.pop(entry)
