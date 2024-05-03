@@ -16,14 +16,14 @@ def main():
             print()
             print(help_file.read())
         elif user_input == "add" or user_input == "2":
-            import them_hoc_vien as thv
-            thv.them_hoc_vien()
+            import hoc_vien_info as hvinfo
+            hvinfo.them_hoc_vien()
         elif user_input == "delete" or user_input == "3":
-            import xoa_hoc_vien as xhv
-            xhv.xoa_hoc_vien()
+            import hoc_vien_info as hvinfo
+            hvinfo.xoa_hoc_vien()
         elif user_input == "view":
-            import xem_danh_sach as xds
-            xds.xem_danh_sach()
+            import diem_so as ds
+            ds.xem_danh_sach()
         elif user_input == "dm1" or user_input == "4":
             import diem_so as ds
             ds.diem_mon("dm1")
