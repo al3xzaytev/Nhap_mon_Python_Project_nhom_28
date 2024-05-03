@@ -4,21 +4,24 @@ import file_handling
 
 
 def hoc_vien_info():
-    user_mshv_input = str(input("Nhập mã số học viên: "))
     file_content = file_handling.process_file("read")
-    found = False
-    for entry in file_content:
-        dong = entry.split(sep="|")
-        if dong[0] == user_mshv_input:
-            line = entry.split(sep="\n")
-            info_hoc_vien = line[0].split(sep="|")
-            found = True
-            import table_draw as td
-            td.table_draw("hvinfo", info_hoc_vien)
-        else:
-            continue
-    if not found:
-        print("\nLỗi: Không tìm thấy học viên!")
+    user_mshv_input = str(input("Nhập mã số học viên: "))
+    if user_mshv_input == "quit":
+        return
+    else:
+        found = False
+        for entry in file_content:
+            dong = entry.split(sep="|")
+            if dong[0] == user_mshv_input:
+                line = entry.split(sep="\n")
+                info_hoc_vien = line[0].split(sep="|")
+                found = True
+                import table_draw as td
+                td.table_draw("hvinfo", info_hoc_vien)
+            else:
+                continue
+        if not found:
+            print("\nLỗi: Không tìm thấy học viên!")
 
 
 def them_hoc_vien():
