@@ -38,33 +38,16 @@ def count_mon_hoc_phu(mshv):
         d = 7
         smhp = 1
         while mhp < len(hvinfo):
-            print(f"Môn học phụ {smhp}: {hvinfo[mhp]}, Điểm {hvinfo[d]}")
+            print(f"Môn học phụ {smhp}: {hvinfo[mhp]}, Điểm: {hvinfo[d]}")
             mhp += 2
             d += 2
             smhp += 1
     else:
         print(f"\nHọc viên {mshv} không có môn học phụ.")
 
-        # COUNT SOURCE CODE
-        # has_mhp = False
-        # if len(entry) > 6:
-        #     has_mhp = True
-        # if has_mhp:
-        #     print(f"\nMSHV: {entry[0]}", end=" | ")
-        #     mhp = 6
-        #     d = 7
-        #     smhp = 1
-        #     while mhp < len(entry):
-        #         print(f"MHP {smhp}: {entry[mhp]}, Điểm {entry[d]}", end=" | ")
-        #         mhp += 2
-        #         d += 2
-        #         smhp += 1
-        # else:
-        #     print(f"\nMSHV: {entry[0]}", end=" | Không có môn học phụ")
-
 
 def add_mon_hoc_phu():
-    print("===== THÊM MÔN HỌC PHỤ =====")
+    print("++++++++++ THÊM MÔN HỌC PHỤ ++++++++++")
     file = file_handling.process_file("read")
 
     danh_sach = []
@@ -115,8 +98,6 @@ def add_mon_hoc_phu():
             print("Lỗi: Điểm không hợp lệ!\n")
 
     addition = "|" + mmhp + "|" + dmhp + "\n"
-    print(addition)
-
     danh_sach = []
     num = 0
     for entry in file:
@@ -129,3 +110,138 @@ def add_mon_hoc_phu():
     for entries in danh_sach:
         file_modded.write(entries)
     file_modded.close()
+    print(f"Thêm môn học phụ {mmhp} cho học viên {mshv_input} thành công.")
+
+
+def del_mon_hoc_phu():
+    print("---------- XOÁ MÔN HỌC PHỤ ----------")
+    file = file_handling.process_file("read")
+
+    danh_sach = []
+    for entry in file:
+        line = entry.split(sep="\n")
+        info_hoc_vien = line[0].split(sep="|")
+        danh_sach.append(info_hoc_vien)
+
+    while True:
+        mshv_input = input("Nhập mã số học viên: ")
+        flag_trung_lap = False
+        for entry in danh_sach:
+            if mshv_input == entry[0]:
+                flag_trung_lap = True
+        if mshv_input == "quit":
+            return None
+        elif len(mshv_input) == 8 and flag_trung_lap:
+            break
+        else:
+            print("Lỗi: Mã số học viên không hợp lệ!\n")
+
+    found = False
+    for entry in file:
+        mshv_entry = entry.split(sep="|")
+        if mshv_entry[0] == mshv_input:
+            found = True
+        else:
+            continue
+    if found:
+        count_mon_hoc_phu(mshv_input)
+
+    while True:
+        mmhp = str(input("Nhập mã môn học phụ cần xoá (4 chữ cái): "))
+        if mmhp == "quit":
+            return None
+        elif len(mmhp) == 4:
+            break
+        else:
+            print("Lỗi: Mã môn học không hợp lệ!\n")
+
+    hoc_vien = ""
+    danh_sach = []
+
+    for entry in file:
+        if mmhp in entry:
+            hoc_vien = entry.split(sep="|")
+            hoc_vien[-1].replace("\n", "")
+            count = 0
+            while count < len(hoc_vien):
+                if hoc_vien[count] == mmhp:
+                    hoc_vien.pop(count)
+                    hoc_vien.pop(count)
+                    break
+                else:
+                    count += 1
+            if "\n" not in hoc_vien[-1]:
+                hoc_vien[-1] = hoc_vien[-1] + "\n"
+            new = "|".join(hoc_vien)
+            danh_sach.append(new)
+        else:
+            danh_sach.append(entry)
+
+    if hoc_vien == "":
+        print("Lỗi: Không tìm thấy môn học phụ của học viên!")
+    else:
+        file_modded = file_handling.process_file("write")
+        for entry in danh_sach:
+            file_modded.write(entry)
+        file_modded.close()
+        print(f"Xoá môn học phụ {mmhp} cho học viên {mshv_input} thành công.")
+
+
+def ma_mhp(so, monhoc):
+    file = file_handling.process_file("read")
+
+    danh_sach = []
+    for entry in file:
+        line = entry.split(sep="\n")
+        info_hoc_vien = line[0].split(sep="|")
+        danh_sach.append(info_hoc_vien)
+
+    index_mmhp = 6
+    index_dmhp = 7
+    count = 1
+    while count < int(so):
+        index_mmhp += 2
+        index_dmhp += 2
+        count += 1
+
+    data = []
+    for entry in danh_sach:
+        if len(entry) >= index_dmhp and entry[index_mmhp] == monhoc:
+            add = entry[0] + "|" + entry[1] + "|" + entry[index_mmhp] + "|" + entry[index_dmhp]
+            add = add.split(sep="|")
+            data.append(add)
+    if not data:
+        print(f"Thông báo: Học viên không có môn học phụ số {so} theo mã {monhoc}.")
+    else:
+        import table_draw as td
+        td.table_draw("mhp", data)
+
+
+def diem_mhp(mshv, so):
+    file = file_handling.process_file("read")
+
+    danh_sach = []
+    for entry in file:
+        line = entry.split(sep="\n")
+        info_hoc_vien = line[0].split(sep="|")
+        danh_sach.append(info_hoc_vien)
+
+    index_mmhp = 6
+    index_dmhp = 7
+    count = 1
+    while count < int(so):
+        index_mmhp += 2
+        index_dmhp += 2
+        count += 1
+
+    data = []
+    for entry in danh_sach:
+        if len(entry) >= index_dmhp and entry[0] == mshv:
+            add = entry[0] + "|" + entry[1] + "|" + entry[index_mmhp] + "|" + entry[index_dmhp]
+            add = add.split(sep="|")
+            data.append(add)
+    if not data:
+        print(f"Thông báo: Học viên không có môn học phụ số {so}.")
+    else:
+        import table_draw as td
+        td.table_draw("mhp", data)

@@ -1,15 +1,36 @@
-help: Hiển thị danh sách lệnh
-dir: Thay đổi đường dẫn tập tin dữ liệu
+=======================================================
+##########               HELP                ##########
+=======================================================
+  Đây là danh sách lệnh. Người dùng có thể gõ toàn bộ
+       mã lệnh vào hoặc chỉ cần gõ số để làm việc
+           (với các tính năng hỗ trợ gõ số)
 
-add: Thêm học viên
-delete: Xoá học viên theo mã số học viên
-
-view: Xem danh sách
-dm1: Xem bảng điểm DM1 của học viên theo thứ tự tăng dần
-dm2: Xem bảng điểm DM2 của học viên theo thứ tự tăng dần
-diemso: Xem bảng điểm của học viên theo thứ tự tăng dần của DM1-DM2
-mmh1: Chọn môn học 1 bằng mã môn học để xem bảng điểm
-mmh2: Chọn môn học 2 bằng mã môn học để xem bảng điểm
-mshv: Xem thông tin học viên theo mã số học viên
-
+=======================================================
+##########               CHUNG               ##########
+=======================================================
+1. help: Hiển thị danh sách lệnh
+2. dir: Thay đổi đường dẫn tập tin dữ liệu
+clear: Refresh màn hình quay lại trạng thái ban đầu
 quit: Thoát chương trình
+
+=======================================================
+##########             HỌC VIÊN              ##########
+=======================================================
+3. add: Thêm học viên
+4. delete: Xoá học viên theo mã số học viên
+5. mshv: Xem thông tin học viên theo mã số học viên
+
+=======================================================
+##########         ĐIỂM VÀ DANH SÁCH         ##########
+=======================================================
+6. view: Xem danh sách
+7. dm1: Xem bảng điểm DM1 của học viên theo thứ tự tăng dần
+8. dm2: Xem bảng điểm DM2 của học viên theo thứ tự tăng dần
+9. diemso: Xem bảng điểm của học viên theo thứ tự tăng dần của DM1-DM2
+
+=======================================================
+##########              MÔN HỌC              ##########
+=======================================================
+10. mmh1: Chọn môn học 1 bằng mã môn học để xem bảng điểm
+11. mmh2: Chọn môn học 2 bằng mã môn học để xem bảng điểm
+12. mhp: Làm việc với môn học phụ
