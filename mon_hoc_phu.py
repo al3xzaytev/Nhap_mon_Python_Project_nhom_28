@@ -38,12 +38,14 @@ def count_mon_hoc_phu(mshv):
         d = 7
         smhp = 1
         while mhp < len(hvinfo):
-            print(f"Môn học phụ {smhp}: {hvinfo[mhp]}, Điểm: {hvinfo[d]}")
+            print(f"Môn học phụ {smhp}: {hvinfo[mhp]}")
             mhp += 2
             d += 2
             smhp += 1
+            return True
     else:
         print(f"\nHọc viên {mshv} không có môn học phụ.")
+        return False
 
 
 def add_mon_hoc_phu():
@@ -147,7 +149,7 @@ def del_mon_hoc_phu():
         count_mon_hoc_phu(mshv_input)
 
     while True:
-        mmhp = str(input("Nhập mã môn học phụ cần xoá (4 chữ cái): "))
+        mmhp = str(input("Nhập mã môn học phụ cần XOÁ (4 chữ cái): "))
         if mmhp == "quit":
             return None
         elif len(mmhp) == 4:
@@ -178,7 +180,7 @@ def del_mon_hoc_phu():
             danh_sach.append(entry)
 
     if hoc_vien == "":
-        print("Lỗi: Không tìm thấy môn học phụ của học viên!")
+        print(f"Lỗi: Không tìm thấy môn học phụ {mmhp} của học viên!")
     else:
         file_modded = file_handling.process_file("write")
         for entry in danh_sach:
@@ -187,7 +189,10 @@ def del_mon_hoc_phu():
         print(f"Xoá môn học phụ {mmhp} cho học viên {mshv_input} thành công.")
 
 
-def ma_mhp(so, monhoc):
+def ma_mhp():
+    mhp_so = int(input("Xem điểm môn học phụ số: "))
+    mhp_ma = input("Mã môn học phụ: ")
+
     file = file_handling.process_file("read")
 
     danh_sach = []
@@ -199,25 +204,25 @@ def ma_mhp(so, monhoc):
     index_mmhp = 6
     index_dmhp = 7
     count = 1
-    while count < int(so):
+    while count < int(mhp_so):
         index_mmhp += 2
         index_dmhp += 2
         count += 1
 
     data = []
     for entry in danh_sach:
-        if len(entry) >= index_dmhp and entry[index_mmhp] == monhoc:
+        if len(entry) >= index_dmhp and entry[index_mmhp] == mhp_ma:
             add = entry[0] + "|" + entry[1] + "|" + entry[index_mmhp] + "|" + entry[index_dmhp]
             add = add.split(sep="|")
             data.append(add)
     if not data:
-        print(f"Thông báo: Học viên không có môn học phụ số {so} theo mã {monhoc}.")
+        print(f"Thông báo: Học viên không có môn học phụ số {mhp_so} theo mã {mhp_ma}.")
     else:
         import table_draw as td
         td.table_draw("mhp", data)
 
 
-def diem_mhp(mshv, so):
+def diem_mhp():
     file = file_handling.process_file("read")
 
     danh_sach = []
@@ -226,22 +231,37 @@ def diem_mhp(mshv, so):
         info_hoc_vien = line[0].split(sep="|")
         danh_sach.append(info_hoc_vien)
 
-    index_mmhp = 6
-    index_dmhp = 7
-    count = 1
-    while count < int(so):
-        index_mmhp += 2
-        index_dmhp += 2
-        count += 1
+    while True:
+        mshv = input("\nNhập mã số học viên cần xem điểm: ")
+        found = False
+        for hocvien in danh_sach:
+            if mshv in hocvien[0]:
+                found = True
+                if count_mon_hoc_phu(mshv):
+                    mhp_so = int(input("\nXem điểm môn học phụ số: "))
 
-    data = []
-    for entry in danh_sach:
-        if len(entry) >= index_dmhp and entry[0] == mshv:
-            add = entry[0] + "|" + entry[1] + "|" + entry[index_mmhp] + "|" + entry[index_dmhp]
-            add = add.split(sep="|")
-            data.append(add)
-    if not data:
-        print(f"Thông báo: Học viên không có môn học phụ số {so}.")
-    else:
-        import table_draw as td
-        td.table_draw("mhp", data)
+                    index_mmhp = 6
+                    index_dmhp = 7
+                    count = 1
+                    while count < int(mhp_so):
+                        index_mmhp += 2
+                        index_dmhp += 2
+                        count += 1
+                    data = []
+                    for entry in danh_sach:
+                        if len(entry) >= index_dmhp and entry[0] == mshv:
+                            add = entry[0] + "|" + entry[1] + "|" + entry[index_mmhp] + "|" + entry[index_dmhp]
+                            add = add.split(sep="|")
+                            data.append(add)
+                    if not data:
+                        print(f"Thông báo: Học viên không có môn học phụ số {mhp_so}.")
+                    else:
+                        import table_draw as td
+                        td.table_draw("mhp", data)
+                        return
+                else:
+                    return
+        if mshv == "quit":
+            return
+        elif not found:
+            print(f"Lỗi: Không tìm thấy học viên {mshv}!")

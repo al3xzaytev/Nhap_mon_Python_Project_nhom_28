@@ -9,7 +9,7 @@ def main():
     const_nam_dep_trai = True
 
     while const_nam_dep_trai is True:
-        user_input = input("\n>: ")
+        user_input = input("\n> main: ")
         if user_input == "help" or user_input == "1":
             abs_path = os.path.abspath("help.txt")
             help_file = open(abs_path, 'r', encoding='utf-8')
@@ -47,13 +47,13 @@ def main():
             ds.ma_mon_hoc("mmh2")
         elif user_input == "mhp" or user_input == "12":
             import mon_hoc_phu as mhp
-            print("\nChọn việc cần làm:\n"
-                  "1. Thêm môn học phụ\n"
-                  "2. Xoá môn học phụ\n"
-                  "3. Xem điểm môn học phụ\n"
-                  "4. Xem điểm môn học phụ của học viên")
+            print("\n"
+                  "1. Thêm môn học phụ cho học viên\n"
+                  "2. Xoá môn học phụ cho học viên\n"
+                  "3. Xem điểm môn học phụ theo mã môn học phụ\n"
+                  "4. Xem điểm môn học phụ theo mã số học viên")
             while True:
-                mhp_input = input("\n>: ")
+                mhp_input = input("\nChọn việc cần làm: ")
                 if mhp_input == "1":
                     mhp.add_mon_hoc_phu()
                     break
@@ -61,14 +61,10 @@ def main():
                     mhp.del_mon_hoc_phu()
                     break
                 elif mhp_input == "3":
-                    mhp_so = int(input("Xem điểm môn học phụ số: "))
-                    mhp_ma = input("Mã môn học phụ: ")
-                    mhp.ma_mhp(mhp_so, mhp_ma)
+                    mhp.ma_mhp()
                     break
                 elif mhp_input == "4":
-                    mshv = input("Nhập mã số học viên cần xem điểm: ")
-                    mhp_so = int(input("Xem điểm môn học phụ số: "))
-                    mhp.diem_mhp(mshv, mhp_so)
+                    mhp.diem_mhp()
                     break
                 elif mhp_input == "quit":
                     break
@@ -78,6 +74,7 @@ def main():
             break
         elif user_input == "clear":
             intro()
+            break
         else:
             print(f"Lỗi: Lệnh '{user_input}' không hợp lệ.")
 

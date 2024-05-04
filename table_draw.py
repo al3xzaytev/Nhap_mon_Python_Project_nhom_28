@@ -81,28 +81,21 @@ def table_draw(command, data):
     print("|", end="")
 
     if command == "view" or command == "hvinfo":
-        for i in range(0, 16):  # Mã môn 1
-            print("-", end="")
-        print("|", end="")
-        for i in range(0, 14):  # Điểm môn 1
-            print("-", end="")
-        print("|", end="")
-        for i in range(0, 16):  # Mã môn 2
-            print("-", end="")
-        print("|", end="")
-        for i in range(0, 14):  # Điểm môn 2
-            print("-", end="")
-        print("|", end="")
+        for z in range(0, 2):
+            for i in range(0, 16):  # Mã môn 1/2
+                print("-", end="")
+            print("|", end="")
+            for i in range(0, 14):  # Điểm môn 1/2
+                print("-", end="")
+            print("|", end="")
         if has_mhp:
-            count = 1
-            while count < smhp:
+            for z in range(1, smhp):
                 for i in range(0, 18):  # Mã MHP
                     print("-", end="")
                 print("|", end="")
                 for i in range(0, 19):  # Điểm MHP
                     print("-", end="")
                 print("|", end="")
-                count += 1
         print()
     elif command == "dm1" or command == "dm2":
         for i in range(0, 13):  # Điểm môn 1/2
@@ -193,6 +186,7 @@ def table_draw(command, data):
                 mhp += 2
                 d += 2
                 smhp += 1
+        print()
 
     elif command == "dm1" or command == "dm2":
         for entries in data:
