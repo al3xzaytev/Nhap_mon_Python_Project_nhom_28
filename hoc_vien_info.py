@@ -4,6 +4,7 @@ import file_handling
 
 
 def hoc_vien_info():
+    print("[========== XEM THÔNG TIN HỌC VIÊN ==========]")
     file_content = file_handling.process_file("read")
     user_mshv_input = str(input("Nhập mã số học viên: "))
     if user_mshv_input == "quit":
@@ -25,7 +26,7 @@ def hoc_vien_info():
 
 
 def them_hoc_vien():
-    print("[ + Thêm học viên + ]")
+    print("[ + THÊM HỌC VIÊN + ]")
     file = file_handling.process_file("read")
     danh_sach = []
     for entry in file:
@@ -106,7 +107,7 @@ def them_hoc_vien():
 
 
 def xoa_hoc_vien():
-    print("[ - Xoá học viên - ]")
+    print("[ - XOÁ HỌC VIÊN - ]")
     file_hoc_vien = file_handling.process_file("read")
 
     found = False
