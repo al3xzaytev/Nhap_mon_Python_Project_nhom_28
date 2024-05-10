@@ -4,6 +4,7 @@ import file_handling
 
 
 def xem_danh_sach():
+    print("[========== DANH SÁCH ==========]")
     file_content = file_handling.process_file("read")
 
     danh_sach = []
@@ -17,6 +18,7 @@ def xem_danh_sach():
 
 
 def diem_mon(mon_hoc):
+    print("[========== XEM ĐIỂM THEO SỐ MÔN HỌC ==========]")
     file_hoc_vien = file_handling.process_file("read")
 
     danh_sach = []
@@ -37,6 +39,7 @@ def diem_mon(mon_hoc):
 
 
 def ma_mon_hoc(mon_hoc):
+    print("[========== XEM ĐIỂM THEO MÃ MÔN HỌC ==========]")
     file_hoc_vien = file_handling.process_file("read")
 
     danh_sach = []
@@ -79,6 +82,7 @@ def ma_mon_hoc(mon_hoc):
 
 
 def diem_so():
+    print("[========== BẢNG ĐIỂM ==========]")
     file_hoc_vien = file_handling.process_file("read")
 
     danh_sach = []
