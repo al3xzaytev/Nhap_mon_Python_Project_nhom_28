@@ -12,13 +12,13 @@ def set_file_path():
     while True:
         input_path = str(input("\nNhập đường dẫn tập tin dữ liệu mới: "))
         if input_path == "quit":
-            break
+            return
         else:
             if input_path == "":
                 file_path = op.abspath(default_file)
                 print("Đường dẫn đã chọn:", file_path)
                 print("\nDanh sách", file_path, "đã mở.")
-                break
+                return
             else:
                 if op.exists(op.abspath(input_path)):
                     file_path = op.abspath(input_path)
@@ -36,7 +36,9 @@ def set_file_path():
                             return
                         elif create_new_file_prompt == "N":
                             set_file_path()
-                            break
+                            return
+                        elif create_new_file_prompt == "quit":
+                            return
                         else:
                             print("Lỗi: Sai cú pháp lệnh.")
 
