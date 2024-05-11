@@ -5,7 +5,7 @@ import os.path as op
 # Đọc đường dẫn file trong path.txt
 path_file_path = str(open("path.txt", "r").read())
 file_path = op.abspath(path_file_path)
-default_file = "hocvien.txt"
+default_file = "DATAPYTHON\hocvien.txt"
 
 
 def write_file_path(path):  # Lưu đường dẫn file vào path.txt
