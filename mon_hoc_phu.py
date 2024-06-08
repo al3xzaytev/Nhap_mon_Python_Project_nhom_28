@@ -42,7 +42,7 @@ def count_mon_hoc_phu(mshv):
             mhp += 2
             d += 2
             smhp += 1
-            return True
+        return True
     else:
         print(f"\nHọc viên {mshv} không có môn học phụ.")
         return False

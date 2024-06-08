@@ -1,1 +1,1 @@
-DATAPYTHON\hocvien.txt
+DATAPYTHON/hocvien.txt
